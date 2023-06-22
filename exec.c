@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * exec_instruction - Execute an instruction based on the opcode
  * @opcode: The opcode to execute
@@ -13,7 +12,7 @@ void exec_instruction(char *opcode, stack_t **stack, unsigned int line_number)
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
-                {"pint", pint},
+		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
