@@ -1,0 +1,25 @@
+#include "monty.h"
+
+int is_number(const char *str)
+{
+    if (str == NULL || *str == '\0')
+        return 0;
+
+    int i;
+    int length = strlen(str);
+
+    /* Check for negative sign */
+    if (str[0] == '-')
+        i = 1;
+    else
+        i = 0;
+
+    /* Check if all characters are digits */
+    for (; i < length; i++)
+    {
+        if (!isdigit((unsigned char)str[i]))
+            return 0;
+    }
+
+    return 1;
+}

@@ -2,7 +2,7 @@
 
 void nop(stack_t **stack, unsigned int line_number)
 {
-	/* No operation, do nothing */
-	(void)stack;
-	(void)line_number;
+    (void)stack;
+    (void)line_number;
+    /* No operation, do nothing */
 }
