@@ -7,7 +7,4 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-        /* Implement your push logic here */
 }
-
-/* Add more stack-related functions here */

@@ -7,25 +7,23 @@
  */
 void op_rotl(stack_t **stack, unsigned int line_number)
 {
-        stack_t *top, *current;
+	stack_t *top, *current;
 
-        (void)line_number;
-        if (*stack == NULL || (*stack)->next == NULL)
-                return;
+	(void)line_number;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
 
-        top = *stack;
-        current = *stack;
+	top = *stack;
+	current = *stack;
 
-        while (current->next != NULL)
-                current = current->next;
+	while (current->next != NULL)
+		current = current->next;
 
-        current->next = top;
-        top->prev = current;
+	current->next = top;
+	top->prev = current;
 
-        *stack = top->next;
-        (*stack)->prev = NULL;
+	*stack = top->next;
+	(*stack)->prev = NULL;
 
-        top->next = NULL;
+	top->next = NULL;
 }
-
-/* Add more opcode functions here */
