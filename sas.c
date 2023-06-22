@@ -8,14 +8,14 @@
 
 void sub(stack_t **stack, unsigned int line_number)
 {
-    if (*stack == NULL || (*stack)->next == NULL)
-    {
-        fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    (*stack)->next->n -= (*stack)->n;
-    pop(stack, line_number);
+	(*stack)->next->n -= (*stack)->n;
+	pop(stack, line_number);
 }
 /**
  * swap - swaps the top two elements of the stack
@@ -26,16 +26,17 @@ void sub(stack_t **stack, unsigned int line_number)
 
 void swap(stack_t **stack, unsigned int line_number)
 {
-        int temp = 0;
-        if (*stack == NULL || (*stack)->next == NULL)
-        {
-                fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+	int temp = 0;
 
-        temp = (*stack)->n;
-        (*stack)->n = (*stack)->next->n;
-        (*stack)->next->n = temp;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = temp;
 }
 /**
  * add - adds the top two elements of the stack
@@ -46,12 +47,12 @@ void swap(stack_t **stack, unsigned int line_number)
 
 void add(stack_t **stack, unsigned int line_number)
 {
-        if (*stack == NULL || (*stack)->next == NULL)
-        {
-                fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-        (*stack)->next->n += (*stack)->n;
-        pop(stack, line_number);
+	(*stack)->next->n += (*stack)->n;
+	pop(stack, line_number);
 }
