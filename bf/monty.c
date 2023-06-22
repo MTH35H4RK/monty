@@ -9,36 +9,30 @@
  */
 int main(int argc, char *argv[])
 {
-        /* Check if the file name is provided as an argument */
-        if (argc != 2)
-        {
-                fprintf(stderr, "Usage: monty file\n");
-                exit(EXIT_FAILURE);
-        }
+	if (argc != 2)
+	{
+		fprintf(stderr, "Usage: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 
-        /* Open the Monty script file */
-        FILE *script_file = fopen(argv[1], "r");
-        if (script_file == NULL)
-        {
-                fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-                exit(EXIT_FAILURE);
-        }
+	FILE *script_file = fopen(argv[1], "r");
 
-        /* Initialize the stack and line number variables */
-        stack_t *stack = NULL;
-        unsigned int line_number = 0;
+	if (script_file == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 
-        /* Read and interpret each line of the script file */
-        char *line = NULL;
-        size_t line_size = 0;
-        ssize_t line_length = 0;
+	stack_t *stack = NULL;
+	unsigned int line_number = 0;
 
-        while ((line_length = getline(&line, &line_size, script_file)) != -1)
-        {
-                line_number++;
+	char *line = NULL;
+	size_t line_size = 0;
+	ssize_t line_length = 0;
 
-                /* Tokenize the line into opcode and argument */
-                char *opcode = strtok(line, " \t\n");
-                char *argument = strtok(NULL, " \t\n");
+	while ((line_length = getline(&line, &line_size, script_file)) != -1)
+	{
+		line_number++;
 
-                /* Ignore empty lines
+		char *opcode = strtok(line, " \t\n");
+		char *argument = strtok(NULL, " \t\n");
